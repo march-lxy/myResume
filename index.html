@@ -21,12 +21,6 @@
     <link rel="stylesheet" href="assets/css/typo.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
-    <script>
-        function loading() {
-            document.getElementsByClassName('avatar')[0].style.display = 'block';
-            document.getElementsByClassName('loading')[0].style.display = 'none';
-        }
-    </script>
 </head>
 
 <body>
@@ -35,80 +29,6 @@
 
     <article class="container">
         <section class="side" id="side">
-
-            <!-- 左栏固定开关，记得及时删除这段代码 Start-->
-            <!-- <label class="switch" style="display: none;" onchange="switchFixed()">
-                <script type="text/javaScript">
-                    function switchFixed(){
-                        var value = document.getElementById('side').style.position === 'fixed' ? 'absolute' : 'fixed';
-                        document.getElementById('side').style.position = value;
-                    }
-                </script>
-                <input id="cb" type="checkbox">
-                <span class="slider round"></span>
-            </label>
-            <style>
-                @media (min-width: 414px) {
-                    .switch {
-                        position: relative;
-                        display: inline-block !important;
-                        width: 60px;
-                        height: 34px;
-                    }
-
-                    .switch input {
-                        display: none;
-                    }
-
-                    .slider {
-                        position: absolute;
-                        cursor: pointer;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background-color: #ccc;
-                        -webkit-transition: .4s;
-                        transition: .4s;
-                    }
-
-                    .slider:before {
-                        position: absolute;
-                        content: "";
-                        height: 26px;
-                        width: 26px;
-                        left: 4px;
-                        bottom: 4px;
-                        background-color: white;
-                        -webkit-transition: .4s;
-                        transition: .4s;
-                    }
-
-                    input:checked+.slider {
-                        background-color: #1abc9c;
-                    }
-
-                    input:focus+.slider {
-                        box-shadow: 0 0 1px #1abc9c;
-                    }
-
-                    input:checked+.slider:before {
-                        -webkit-transform: translateX(26px);
-                        -ms-transform: translateX(26px);
-                        transform: translateX(26px);
-                    }
-
-                    .slider.round {
-                        border-radius: 34px;
-                    }
-
-                    .slider.round:before {
-                        border-radius: 50%;
-                    }
-                }
-            </style> -->
-            <!-- 左侧固定开关，记得及时删除这段代码 End-->
-
             <!-- 个人肖像 -->
             <section class="me">
                 <section class="portrait">
@@ -120,7 +40,7 @@
                         <span></span>
                     </div>
                     <!-- 头像照片 -->
-                    <img class="avatar" src="assets/images/avatar.jpg" onload="loading()">
+                    <!-- <img class="avatar" onload="loadingImg()" src="assets/images/me.jpg" > -->
                 </section>
 
                 <h1 class="name">刘昕宇</h1>
@@ -238,10 +158,6 @@
                         <label>常用UI框架</label>
                         <span>elementUI、bootstrap、layUI、echarts、iView、Vant、colorUI…</span>
                     </li>
-                    <!-- <li>
-                            <label>其他</label>
-                            <span>Git、SVN、Markdown</span>
-                        </li> -->
                 </ul>
             </div>
         </section>
@@ -471,27 +387,36 @@
             </section>
         </section>
     </article>
-
-
-
     <footer class="footer">
-        <p>© 2019 Thomas
-            <time>2020年3月24日</time>.</p>
+        <p><i>感谢翻阅，期待共事</i></p>
     </footer>
 
     <!-- 侧栏 -->
     <aside>
         <ul>
             <li>
-                <a href="https://github.com/march-lxy" target="_blank">查看源码</a>
+                <a href="https://github.com/march-lxy/myResume" target="_blank">查看源码</a>
             </li>
-            <!-- <li>
-                <a href="http://if2er.com/" target="_blank">Blog</a>
-            </li> -->
         </ul>
     </aside>
 
     <script src="./assets/js/index.js"></script>
+    <script>
+        var parentDom = document.getElementsByClassName('portrait')[0];
+        var imgLoad = function (url) {
+            var img = new Image();
+            img.src = './assets/images/me.jpg';
+            img.onload = function () {
+                document.getElementsByClassName('loading')[0].style.display = 'none';
+                img.setAttribute("class", "avatar");
+                // img.style.display = 'block';
+                img.style.cssText = "width:8rem;height:10rem;display:block;";
+                parentDom.appendChild(img);
+
+            };
+        };
+        imgLoad();
+    </script>
 </body>
 
 </html>
