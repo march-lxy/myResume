@@ -98,6 +98,11 @@ body {
     display: inline-block;
     vertical-align: top;
     width: 60%; }
+  .container .side .info-unit ul li .money {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    width: 10%; }
 .container .main {
   position: relative;
   margin-left: 22rem;
